@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="فروشگاه محمد کعبی؛ عرضه خرما، رطب و محصولات منتخب نخلستان">
+  <title>فروشگاه محمد کعبی | خرما و رطب</title>
+  <style>
+    :root {
+      --green: #254b35;
+      --green-dark: #173323;
+      --gold: #d9a441;
+      --cream: #fffaf0;
+      --text: #282820;
+      --muted: #6c6b60;
+      --white: #fff;
+      --shadow: 0 12px 35px rgba(35, 45, 28, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background: #fffdf8;
+      line-height: 1.9;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1140px, 92%); margin: auto; }
+    .topbar { background: var(--green-dark); color: #fff; font-size: .88rem; padding: 7px 0; }
+    .topbar .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    header { background: rgba(255,255,255,.96); position: sticky; top: 0; z-index: 10; box-shadow: 0 3px 18px #0000000b; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; color: var(--green); font-size: 1.2rem; }
+    .logo { width: 48px; height: 48px; display: grid; place-items: center; background: var(--cream); border: 1px solid #eadbb8; border-radius: 50%; font-size: 1.65rem; }
+    .links { display: flex; gap: 23px; align-items: center; font-size: .95rem; }
+    .links a:hover { color: #a16d14; }
+    .btn { display: inline-block; border: 0; border-radius: 999px; padding: 11px 22px; cursor: pointer; font-weight: 700; transition: .2s; }
+    .btn-primary { background: var(--gold); color: #241b0b; }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(.96); }
+    .btn-outline { border: 1px solid #d8c79f; background: transparent; }
+    .hero { padding: 58px 0; background: radial-gradient(circle at 15% 25%, #e7d5a0 0, transparent 27%), linear-gradient(120deg, #fff8e7, #f5edda 55%, #e7eddf); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 35px; align-items: center; }
+    .eyebrow { display: inline-block; color: var(--green); background: #e4eadc; padding: 4px 14px; border-radius: 999px; font-size: .88rem; font-weight: bold; }
+    h1 { font-size: clamp(2rem, 4.3vw, 3.55rem); line-height: 1.45; margin: 14px 0; color: var(--green-dark); }
+    .hero p { color: #59594d; max-width: 590px; margin-bottom: 25px; }
+    .hero-art { min-height: 300px; display: grid; place-items: center; position: relative; }
+    .palm-card { width: min(330px, 90%); aspect-ratio: 1/1; display: grid; place-items: center; border-radius: 48% 48% 44% 44%; background: linear-gradient(145deg, #345e3e, #173323); box-shadow: 0 24px 45px #213b2b33; color: #fff; font-size: 7.5rem; position: relative; }
+    .palm-card::after { content: "از نخلستان تا سفره شما"; position: absolute; bottom: 28px; font-size: .95rem; color: #f8e5b1; }
+    .float-badge { position: absolute; right: 3%; top: 13%; background: white; border-radius: 16px; padding: 9px 15px; box-shadow: var(--shadow); font-weight: bold; color: var(--green); }
+    section { padding: 62px 0; }
+    .section-head { text-align: center; margin-bottom: 30px; }
+    .section-head h2 { color: var(--green-dark); font-size: clamp(1.55rem, 3vw, 2.15rem); margin: 0 0 5px; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: -25px; position: relative; }
+    .feature { background: white; border: 1px solid #f0e8d7; border-radius: 18px; padding: 20px; text-align: center; box-shadow: var(--shadow); }
+    .feature span { font-size: 1.8rem; }
+    .feature h3 { margin: 5px 0 0; color: var(--green); font-size: 1.05rem; }
+    .feature p { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
+    .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .product { background: white; border: 1px solid #eee8da; border-radius: 20px; overflow: hidden; box-shadow: 0 7px 25px #00000008; transition: .25s; }
+    .product:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .product-image { min-height: 190px; display: grid; place-items: center; background: linear-gradient(135deg, #f7edda, #e6d5b3); font-size: 5.4rem; }
+    .product:nth-child(2) .product-image { background: linear-gradient(135deg, #e7ead9, #c9d4b6); }
+    .product:nth-child(3) .product-image { background: linear-gradient(135deg, #f4e5d9, #dfc2a4); }
+    .product-body { padding: 18px; }
+    .product-body h3 { margin: 0 0 5px; color: var(--green-dark); }
+    .product-body p { margin: 0 0 12px; color: var(--muted); font-size: .92rem; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .price { color: var(--green); font-weight: 900; }
+    .price small { display: block; color: var(--muted); font-weight: normal; font-size: .75rem; }
+    .product-bottom .btn { padding: 8px 15px; font-size: .88rem; }
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 38px; align-items: center; }
+    .about-art { min-height: 260px; display: grid; place-items: center; border-radius: 25px; background: linear-gradient(145deg, #31583b, #183624); color: #f7df9c; font-size: 7rem; }
+    .about h2 { color: var(--green-dark); font-size: 2rem; margin: 0 0 10px; }
+    .about p { color: #5e5c51; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; }
+    .contact-info, .contact-form { border: 1px solid #eee7d8; border-radius: 20px; padding: 25px; background: #fff; }
+    .contact-info h3, .contact-form h3 { color: var(--green); margin-top: 0; }
+    .contact-info p { margin: 10px 0; color: var(--muted); }
+    .field { margin-bottom: 13px; }
+    .field label { display: block; font-weight: bold; margin-bottom: 5px; font-size: .92rem; }
+    .field input, .field textarea { width: 100%; border: 1px solid #ded8ca; border-radius: 12px; padding: 11px 13px; outline: none; background: #fffdf9; }
+    .field input:focus, .field textarea:focus { border-color: var(--green); }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .notice { display: none; padding: 10px 12px; background: #e8f2e4; color: var(--green-dark); border-radius: 10px; margin-top: 12px; }
+    footer { background: #173323; color: #f7f3e9; padding: 34px 0 18px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+    footer h3 { color: #f0ce7c; margin-top: 0; }
+    footer p, footer a { color: #e0e5da; font-size: .92rem; }
+    footer a:hover { color: #f0ce7c; }
+    .footer-links { display: grid; gap: 5px; }
+    .copyright { border-top: 1px solid #ffffff24; text-align: center; padding-top: 14px; margin-top: 25px; color: #cbd4c8; font-size: .85rem; }
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-wrap: wrap; }
+      .links { order: 3; width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding: 38px 0 50px; }
+      .hero-art { min-height: 250px; }
+      .palm-card { width: 240px; font-size: 5.5rem; }
+      .features { grid-template-columns: 1fr; margin-top: 22px; }
+      .products { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>🌴 طعم اصیل نخلستان‌های خوزستان</span>
+      <span>برای سفارش و راهنمایی با ما تماس بگیرید</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="صفحه اصلی فروشگاه محمد کعبی">
+        <span class="logo">🌴</span>
+        <span>فروشگاه محمد کعبی</span>
+      </a>
+      <nav class="links" aria-label="منوی اصلی">
+        <a href="#home">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#about">درباره ما</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+      <a class="btn btn-primary" href="#products">مشاهده محصولات</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">محصولات منتخب نخلستان</span>
+          <h1>شیرینی طبیعی خرما،<br>مهمان سفره‌های شما</h1>
+          <p>به فروشگاه محمد کعبی خوش آمدید. اینجا می‌توانید با محصولات خرمایی و رطب آشنا شوید و برای ثبت سفارش با ما در ارتباط باشید.</p>
+          <a class="btn btn-primary" href="#products">دیدن محصولات</a>
+          <a class="btn btn-outline" href="#about">آشنایی با ما</a>
+        </div>
+        <div class="hero-art" aria-label="تصویر تزئینی نخل">
+          <div class="float-badge">🌟 کیفیت و تازگی</div>
+          <div class="palm-card">🌴</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container features" aria-label="ویژگی‌های فروشگاه">
+      <div class="feature"><span>🌿</span><h3>محصولات طبیعی</h3><p>معرفی محصولات خرمایی منتخب</p></div>
+      <div class="feature"><span>📦</span><h3>ثبت سفارش آسان</h3><p>برای سفارش با فروشگاه تماس بگیرید</p></div>
+      <div class="feature"><span>🤝</span><h3>پاسخ‌گویی به مشتریان</h3><p>همراه شما برای انتخاب محصول</p></div>
+    </div>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <h2>محصولات فروشگاه</h2>
+          <p>با محصولات موجود در فروشگاه محمد کعبی آشنا شوید</p>
+        </div>
+        <div class="products">
+          <article class="product">
+            <div class="product-image" role="img" aria-label="تصویر نمادین خرما">🫘</div>
+            <div class="product-body">
+              <h3>خرما</h3>
+              <p>خرمای خوش‌طعم برای پذیرایی و مصرف روزانه.</p>
+              <div class="product-bottom"><span class="price">قیمت با تماس<small>برای اطلاع از قیمت روز</small></span><a class="btn btn-primary order-btn" href="#contact" data-product="خرما">سفارش محصول</a></div>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-image" role="img" aria-label="تصویر نمادین رطب">🌰</div>
+            <div class="product-body">
+              <h3>رطب</h3>
+              <p>رطب مناسب علاقه‌مندان به طعم شیرین و لطیف خرما.</p>
+              <div class="product-bottom"><span class="price">قیمت با تماس<small>برای اطلاع از قیمت روز</small></span><a class="btn btn-primary order-btn" href="#contact" data-product="رطب">سفارش محصول</a></div>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-image" role="img" aria-label="تصویر نمادین محصولات نخلستان">🌴</div>
+            <div class="product-body">
+              <h3>محصولات نخلستان</h3>
+              <p>برای پرس‌وجو درباره محصولات دیگر با ما در تماس باشید.</p>
+              <div class="product-bottom"><span class="price">استعلام موجودی<small>بر اساس موجودی فروشگاه</small></span><a class="btn btn-primary order-btn" href="#contact" data-product="محصولات نخلستان">استعلام محصول</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-art" aria-hidden="true">🌴</div>
+        <div>
+          <span class="eyebrow">درباره فروشگاه</span>
+          <h2>درباره فروشگاه محمد کعبی</h2>
+          <p>فروشگاه محمد کعبی با هدف معرفی و عرضه محصولات خرما و رطب راه‌اندازی شده است. تلاش می‌کنیم اطلاعات محصولات را روشن و ساده در اختیار شما قرار دهیم تا انتخاب و ثبت سفارش برایتان آسان باشد.</p>
+          <p>برای اطلاع از نوع محصول، موجودی، قیمت روز و شیوه ارسال، از راه‌های ارتباطی درج‌شده در بخش تماس با ما استفاده کنید.</p>
+          <a class="btn btn-primary" href="#contact">ارتباط با ما</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>تماس با ما</h2>
+          <p>برای سفارش، اطلاع از قیمت یا دریافت راهنمایی با ما در ارتباط باشید</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>اطلاعات ارتباطی</h3>
+            <p>📞 <strong>تلفن:</strong> شماره تماس فروشگاه را اینجا وارد کنید.</p>
+            <p>📍 <strong>نشانی:</strong> آدرس فروشگاه را اینجا وارد کنید.</p>
+            <p>🕒 <strong>ساعات پاسخ‌گویی:</strong> ساعات کاری را اینجا وارد کنید.</p>
+            <p>💬 <strong>شبکه‌های اجتماعی:</strong> لینک صفحه‌های رسمی فروشگاه را اضافه کنید.</p>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <h3>ارسال پیام</h3>
+            <div class="field"><label for="name">نام شما</label><input id="name" name="name" type="text" placeholder="نام و نام خانوادگی" required></div>
+            <div class="field"><label for="phone">شماره تماس</label><input id="phone" name="phone" type="tel" placeholder="شماره تماس شما" required></div>
+            <div class="field"><label for="product">محصول موردنظر</label><input id="product" name="product" type="text" placeholder="مثلاً خرما یا رطب"></div>
+            <div class="field"><label for="message">پیام شما</label><textarea id="message" name="message" placeholder="پیام خود را بنویسید..." required></textarea></div>
+            <button class="btn btn-primary" type="submit">ثبت پیام</button>
+            <div class="notice" id="notice" role="status">این فرم نمایشی است و هنوز به سامانه ارسال پیام متصل نشده است. برای دریافت پیام‌ها باید آن را به بک‌اند یا سرویس فرم متصل کنید.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><h3>فروشگاه محمد کعبی</h3><p>معرفی محصولات خرما و رطب با طراحی ساده، گرم و الهام‌گرفته از نخلستان‌های جنوب ایران.</p></div>
+        <div><h3>دسترسی سریع</h3><div class="footer-links"><a href="#home">صفحه اصلی</a><a href="#products">محصولات</a><a href="#about">درباره ما</a><a href="#contact">تماس با ما</a></div></div>
+        <div><h3>ارتباط با ما</h3><p>تلفن: شماره تماس خود را وارد کنید</p><p>نشانی: آدرس فروشگاه را وارد کنید</p></div>
+      </div>
+      <div class="copyright">© تمامی حقوق این وب‌سایت برای فروشگاه محمد کعبی محفوظ است.</div>
+    </div>
+  </footer>
+
+  <script>
+    // با کلیک روی سفارش، نام محصول در فرم تماس قرار می‌گیرد.
+    document.querySelectorAll('.order-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
+        document.getElementById('product').value = button.dataset.product || '';
+      });
+    });
+
+    // این فرم در نسخه فعلی نمایشی است و اطلاعات را به سرور ارسال نمی‌کند.
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('notice').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
